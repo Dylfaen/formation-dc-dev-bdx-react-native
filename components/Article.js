@@ -4,10 +4,13 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 export default function Article(props) {
 
+  console.log(props)
 
   let stringDate = "" + props.article.publishingDate
-
-  let img = require('../assets/img/corgi.jpg');
+  let img
+  if(props.article.img) {
+    img = require('../assets/img/corgi.jpg');
+  }
 
   console.log(img)
 
@@ -66,6 +69,7 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
     paddingRight: 40,
     paddingBottom: 20,
+    backgroundColor: "white"
   },
   articleAuthor: {
     marginBottom: 20,
