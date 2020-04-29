@@ -2,11 +2,15 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 
+function dateToString(date) {
+  return date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear()
+}
+
+
 export default function Article(props) {
 
   console.log(props)
 
-  let stringDate = "" + props.article.publishingDate
   let img
   if(props.article.img) {
     img = require('../assets/img/corgi.jpg');
@@ -28,8 +32,8 @@ export default function Article(props) {
         <View style={styles.articleBody}>
           <Text style={styles.articleContent}>{props.article.content}</Text>
           <View style={styles.articleFooter}>
-            <Text style={styles.articleDate}>Date de publication : {stringDate}</Text>
-            <Text style={styles.articleAuthor}>Ecrit par : {props.article.author.firstname} {props.article.author.lastname}</Text>
+            <Text style={styles.articleDate}>Date de publication : {dateToString(props.article.publishingDate)}</Text>
+            <Text style={styles.articleAuthor}>Écrit par : {props.article.author.firstname} {props.article.author.lastname}</Text>
           </View>
         </View>
       </ScrollView>
@@ -45,17 +49,16 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   articleHeader: {
-    height: 200,
+    height: 100,
     justifyContent: "center",
   },
   articlePic: {
-    width: null,
-    height: 200,
+    width: "100%",
+    height: 100,
   },
   articleTitle: {
     position: "absolute",
     alignSelf: "center",
-    marginBottom: 40,
     fontSize: 40,
     zIndex: 0,
     color: "white",
@@ -84,6 +87,5 @@ const styles = StyleSheet.create({
     alignItems: "flex-start"
   },
   articleDate: {
-    maxWidth: "50%",
   }
 });
