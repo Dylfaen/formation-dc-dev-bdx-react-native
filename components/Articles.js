@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
+
 import ArticleCard from './ArticleCard'
 
 const data = [
@@ -38,18 +39,16 @@ const data = [
 ]
 
 
+
+
+
 export default function Articles(props) {
 
   return (
     <FlatList
       data={data}
-      renderItem={({ item }) => <ArticleCard article={item} onPress={() => props.navigation.navigate("Article", {article: item})} />}
+      renderItem={({ item }) => <ArticleCard article={item} onPress={() => props.navigation.navigate("Article", { article: item })} />}
       keyExtractor={item => item.title}
     />
   )
 }
-
-
-const styles = StyleSheet.create({
-
-});
