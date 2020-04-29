@@ -1,13 +1,14 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { View , StyleSheet} from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Article from './components/Article';
-import Articles from './components/Articles';
+import { View, StyleSheet } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Articles from './components/Articles';
+import Profile from './components/Profile';
 
 const Tab = createBottomTabNavigator();
-
 
 export default function App() {
 
@@ -98,10 +99,15 @@ export default function App() {
   console.log("App.js articles", articles)
 
 
+
+
   return (
-    <View style={styles.container}>
-      <Articles articles={articles}/>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Articles" component={() => <Articles articles={articles}/>} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+    </NavigationContainer>
 
   );
 }
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "lightgrey"
   }
-}); 
+});
 
 
 
