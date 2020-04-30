@@ -7,6 +7,9 @@ import { Text, View } from 'react-native';
 import ArticleCard from './ArticleCard';
 export default function Articles(props) {
 
+
+  console.log("pwett")
+
   return (
     <FlatList
       data={props.articles}
