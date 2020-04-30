@@ -5,6 +5,10 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 
 export default function ArticleCard(props) {
 
+
+
+  console.log("pwett")
+
   return (
     <TouchableHighlight
       onPress={() => {props.onPress(props.article)}}
