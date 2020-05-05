@@ -7,7 +7,6 @@ export default function ArticleCard(props) {
 
 
 
-  console.log("pwett")
 
   return (
     <TouchableHighlight

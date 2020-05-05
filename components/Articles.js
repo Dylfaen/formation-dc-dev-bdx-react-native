@@ -8,7 +8,6 @@ import ArticleCard from './ArticleCard';
 export default function Articles(props) {
 
 
-  console.log("pwett")
 
   return (
     <FlatList
