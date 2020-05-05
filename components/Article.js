@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 
 function dateToString(date) {
+  date = new Date(date)
   return date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear()
 }
 
@@ -13,7 +14,9 @@ export default function Article(props) {
 
   let img
   if(props.article.img) {
-    img = require('../assets/img/corgi.jpg');
+    img = {
+      uri: props.article.img
+    }
   }
 
   console.log(img)
@@ -33,7 +36,7 @@ export default function Article(props) {
           <Text style={styles.articleContent}>{props.article.content}</Text>
           <View style={styles.articleFooter}>
             <Text style={styles.articleDate}>Date de publication : {dateToString(props.article.publishingDate)}</Text>
-            <Text style={styles.articleAuthor}>Écrit par : {props.article.author.firstname} {props.article.author.lastname}</Text>
+            {/* <Text style={styles.articleAuthor}>Écrit par : {props.article.author.firstname} {props.article.author.lastname}</Text> */}
           </View>
         </View>
       </ScrollView>
